@@ -1,0 +1,4 @@
+interface:
+  display_name: "Add Design Skill"
+  short_description: "Create new skills that match repo standards"
+  default_prompt: "Use $add-design-skill to create or review a new Design Skills plugin skill."

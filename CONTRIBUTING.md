@@ -1,41 +1,89 @@
 # Contributing
 
-This repository stores Codex skills for designers inside a private workspace-shared plugin. Keep contributions small, explicit, and easy for non-technical designers to benefit from.
+This repo keeps the Design Skills plugin up to date for everyone in our organization. Designers do not need to know Git, GitHub CLI, branches, staging, or pull requests to suggest a new skill. You can ask Codex to do the technical steps.
 
-## Add A Skill
+## The Easiest Way
 
-1. Create a folder under `plugins/design-skills/skills/<skill-name>/`.
-2. Use lowercase hyphen-case for `<skill-name>`.
-3. Add a required `SKILL.md`.
-4. Add `agents/openai.yaml` for Codex app display metadata.
-5. Add `scripts/`, `references/`, or `assets/` only when the skill genuinely needs them.
+1. Open Codex.
+2. Start a new thread.
+3. Paste your idea in plain language.
+4. Ask Codex to use `$add-design-skill`.
 
-## SKILL.md Requirements
+Example:
 
-The frontmatter must contain only:
+```text
+Use $add-design-skill to add a skill that helps designers write better UX research interview guides.
 
-```yaml
----
-name: skill-name
-description: Clear trigger description that says what the skill does and when Codex should use it.
----
+The skill should help with:
+- choosing interview goals
+- writing neutral questions
+- avoiding leading language
+- creating a final interview script
 ```
 
-Write the body as concise instructions for Codex. Prefer short workflows, decision rules, expected output shape, and realistic example prompts. Do not add separate installation guides inside skill folders.
+Codex should create the files, check the format, and prepare the GitHub changes for review.
 
-## Validation Checklist
+## What To Include In Your Request
 
-Before sharing an update:
+Keep it simple. A good skill request answers:
 
-- `plugin.json` is valid JSON.
-- `.agents/plugins/marketplace.json` is valid JSON.
-- Every marketplace `source.path` points to an existing plugin folder.
-- Every plugin `skills` path points to an existing skills folder.
-- Every skill has `SKILL.md`.
-- `SKILL.md` frontmatter contains only `name` and `description`.
-- No generated `[TODO: ...]` placeholders remain.
-- The plugin version has been bumped when behavior changes.
+- What design task should this skill help with?
+- When should Codex use it?
+- What should the final answer look like?
+- Do you have a good example, template, checklist, or reference?
 
-## Release Rule
+You do not need perfect wording. A rough idea is enough.
 
-Every merged change that alters skill behavior, adds a skill, removes a skill, or changes user-facing plugin metadata must update `plugins/design-skills/.codex-plugin/plugin.json`.
+## What Happens Next
+
+After you ask Codex to add the skill:
+
+1. Codex creates a draft in this repo.
+2. Codex opens a pull request on GitHub.
+3. A maintainer reviews it.
+4. After approval, the skill becomes part of the shared `Design Skills` plugin.
+5. Designers may need to refresh or reinstall the plugin in Codex if the update is not visible.
+
+## If You Want To Use GitHub Directly
+
+Use the GitHub website, not the command line.
+
+1. Open the repository in your browser.
+2. Click `Issues`.
+3. Click `New issue`.
+4. Choose `Skill request`.
+5. Write the skill idea and include any examples.
+6. Submit the issue.
+
+A maintainer or Codex can turn the issue into a pull request.
+
+## If You Already Know Pull Requests
+
+You can also open a pull request from a branch. Please keep one skill per pull request when possible, and use `$add-design-skill` to check that the skill follows the repo standard.
+
+If you do not know what a branch or pull request is, skip this section. Use Codex or open an issue instead.
+
+## Pull Request Protection
+
+The goal is for `main` to accept changes only through pull requests. If GitHub branch protection or repository rulesets are available for this repository, maintainers should enable:
+
+- Require a pull request before merging.
+- Block direct pushes to `main`.
+- Require the branch to be up to date before merging when practical.
+- Include administrators if the organization wants the rule to apply to everyone.
+
+## Skill Quality Checklist
+
+Every new skill should:
+
+- Solve a repeatable design workflow.
+- Have a short lowercase hyphen-case name, like `design-critique`.
+- Include a clear `SKILL.md` with only `name` and `description` in the frontmatter.
+- Include `agents/openai.yaml` so the skill looks clear in Codex.
+- Stay concise and practical.
+- Use references, assets, or scripts only when they genuinely help.
+- Bump the plugin version when behavior changes.
+
+## Maintainer Notes
+
+Maintainers can use `$add-design-skill` when creating or reviewing skill changes. Keep new work on a branch and merge through a pull request so the `main` branch remains stable.

@@ -1,0 +1,44 @@
+name: Skill request
+description: Suggest a new Design Skills plugin skill
+title: "Skill request: "
+labels:
+  - skill-request
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to describe a skill idea in normal language. You do not need to know Git or GitHub commands.
+  - type: textarea
+    id: task
+    attributes:
+      label: What design task should this skill help with?
+      description: Describe the repeatable design workflow.
+      placeholder: "Example: Help designers write neutral UX research interview questions."
+    validations:
+      required: true
+  - type: textarea
+    id: trigger
+    attributes:
+      label: When should Codex use this skill?
+      description: List the words, situations, files, or artifacts that should trigger the skill.
+      placeholder: "Example: When a designer asks for interview questions, user research scripts, or a discussion guide."
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: What should the final answer look like?
+      description: Describe the format designers should receive.
+      placeholder: "Example: A short plan, interview goals, 8-10 neutral questions, and a checklist."
+  - type: textarea
+    id: examples
+    attributes:
+      label: Examples or references
+      description: Paste any good examples, checklists, templates, or links.
+  - type: checkboxes
+    id: help
+    attributes:
+      label: Help needed
+      options:
+        - label: I want Codex or a maintainer to turn this into a pull request.
+          required: false

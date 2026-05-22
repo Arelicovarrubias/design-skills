@@ -7,6 +7,7 @@ Private Codex plugin repository for reusable design workflows. The repo packages
 - `plugins/design-skills/`: the Codex plugin bundle.
 - `.agents/plugins/marketplace.json`: the repo marketplace entry that makes the plugin visible to Codex.
 - `plugins/design-skills/skills/design-critique/`: the first bundled skill, used for structured product design critique.
+- `plugins/design-skills/skills/add-design-skill/`: the skill standard for adding or reviewing future skills.
 
 ## Designer Install Flow
 
@@ -23,9 +24,14 @@ Designers should not need command-line setup.
 
 1. Update this repo with skill changes.
 2. Bump `plugins/design-skills/.codex-plugin/plugin.json` when changing bundled skills.
-3. Install or refresh the plugin in the Codex app.
-4. Open the plugin details page.
-5. Share it with the workspace or selected organization members.
+3. Open a pull request and merge after review.
+4. Install or refresh the plugin in the Codex app.
+5. Open the plugin details page.
+6. Share it with the workspace or selected organization members.
+
+## Add A Skill
+
+Designers can ask Codex to use `$add-design-skill` and describe the skill idea in plain language. Codex should create the files, prepare the pull request, and ask for review.
 
 ## Versioning
 
