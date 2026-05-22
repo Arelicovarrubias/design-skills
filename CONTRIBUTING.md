@@ -23,6 +23,8 @@ The skill should help with:
 
 Codex should create the files, check the format, and prepare the GitHub changes for review.
 
+Important: skill additions and skill behavior changes should happen through a pull request. Codex should create a branch, push it, and open a pull request instead of pushing directly to `main`.
+
 ## What To Include In Your Request
 
 Keep it simple. A good skill request answers:

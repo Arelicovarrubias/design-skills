@@ -1,6 +1,6 @@
 ---
 name: add-design-skill
-description: Create, edit, or review new skills for the private Design Skills Codex plugin. Use when a designer or maintainer asks to add a skill, draft a skill, standardize skill instructions, review a proposed skill, convert a repeatable design workflow into a skill, or update skill metadata in this repository.
+description: Create, edit, or review new skills for the private Design Skills Codex plugin and route the change through a GitHub pull request. Use when a designer or maintainer asks to add a skill, draft a skill, standardize skill instructions, review a proposed skill, convert a repeatable design workflow into a skill, update skill metadata, or prepare a skill contribution in this repository.
 ---
 
 # Add Design Skill
@@ -16,13 +16,27 @@ Create Design Skills plugin skills that are easy for designers to request, easy 
    - What should trigger the skill?
    - What output should a designer receive?
    - Does the skill need references, scripts, or assets, or can it stay instruction-only?
-2. Name the skill in lowercase hyphen-case. Prefer short action names, such as `design-critique`, `write-design-brief`, or `figma-handoff-review`.
-3. Create the skill under `plugins/design-skills/skills/<skill-name>/`.
-4. Add `SKILL.md` with only `name` and `description` in frontmatter.
-5. Add `agents/openai.yaml` with designer-friendly display metadata.
-6. Add `references/`, `assets/`, or `scripts/` only when they are necessary for repeatability or quality.
-7. Bump the plugin version in `plugins/design-skills/.codex-plugin/plugin.json` when behavior changes.
-8. Validate the skill and summarize what changed for review.
+2. Create or switch to a feature branch before editing. Use a branch name like `codex/add-<skill-name>` or `codex/update-<skill-name>`.
+3. Name the skill in lowercase hyphen-case. Prefer short action names, such as `design-critique`, `write-design-brief`, or `figma-handoff-review`.
+4. Create the skill under `plugins/design-skills/skills/<skill-name>/`.
+5. Add `SKILL.md` with only `name` and `description` in frontmatter.
+6. Add `agents/openai.yaml` with designer-friendly display metadata.
+7. Add `references/`, `assets/`, or `scripts/` only when they are necessary for repeatability or quality.
+8. Bump the plugin version in `plugins/design-skills/.codex-plugin/plugin.json` when behavior changes.
+9. Validate the skill and summarize what changed.
+10. Commit the branch, push it, and open a GitHub pull request for review.
+
+## Pull Request Requirement
+
+Skill additions and skill behavior changes must go through a pull request. Do not commit directly to `main` or push directly to `main` when using this skill, even if repository branch protection is not available.
+
+If GitHub branch protection is unavailable, treat this skill as the process guardrail:
+
+- Work on a feature branch.
+- Commit only the requested skill and documentation changes.
+- Push the feature branch.
+- Open a pull request against `main`.
+- Leave merging to a maintainer after review.
 
 ## Skill Standard
 
@@ -105,4 +119,6 @@ Before finishing, confirm:
 - No scaffold placeholders remain.
 - Optional resources are referenced from `SKILL.md` and are not duplicated there.
 - The plugin version is bumped for behavior changes.
+- The changes are on a feature branch, not committed directly to `main`.
+- A pull request has been opened, or the final answer clearly says why a PR could not be opened.
 - The final answer names changed files and any validation that could not run.
