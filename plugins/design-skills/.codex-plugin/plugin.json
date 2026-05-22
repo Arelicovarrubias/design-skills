@@ -1,0 +1,24 @@
+{
+  "name": "design-skills",
+  "version": "0.1.0",
+  "description": "Private workspace-shared Codex plugin that bundles reusable skills for product and design workflows.",
+  "author": {
+    "name": "Design Skills maintainers"
+  },
+  "repository": "https://github.com/Arelicovarrubias/design-skills",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Design Skills",
+    "shortDescription": "Reusable Codex skills for product designers",
+    "longDescription": "Design Skills packages organization-approved Codex workflows for design critique, design planning, handoff, and related product design work. It is intended for private workspace sharing inside the organization.",
+    "developerName": "Design Skills maintainers",
+    "category": "Design",
+    "capabilities": [
+      "Read"
+    ],
+    "defaultPrompt": [
+      "Use Design Skills to critique this product design.",
+      "Use Design Skills to help improve this design workflow."
+    ]
+  }
+}

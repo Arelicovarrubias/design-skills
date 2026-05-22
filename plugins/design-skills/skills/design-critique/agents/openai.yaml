@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Critique"
+  short_description: "Structured design review for product work"
+  default_prompt: "Use $design-critique to review this design and return prioritized, actionable feedback."
