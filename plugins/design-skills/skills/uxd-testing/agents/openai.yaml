@@ -1,0 +1,4 @@
+interface:
+  display_name: "UXD Testing"
+  short_description: "Lyssna test planning, QA, launch readiness, reporting, and lead workflows"
+  default_prompt: "Use $uxd-testing to prepare, QA, or summarize this UXD Lyssna testing workflow."
