@@ -16,15 +16,39 @@ Create Design Skills plugin skills that are easy for designers to request, easy 
    - What should trigger the skill?
    - What output should a designer receive?
    - Does the skill need references, scripts, or assets, or can it stay instruction-only?
-2. Create or switch to a feature branch before editing. Use a branch name like `codex/add-<skill-name>` or `codex/update-<skill-name>`.
-3. Name the skill in lowercase hyphen-case. Prefer short action names, such as `design-critique`, `write-design-brief`, or `figma-handoff-review`.
-4. Create the skill under `plugins/design-skills/skills/<skill-name>/`.
-5. Add `SKILL.md` with only `name` and `description` in frontmatter.
-6. Add `agents/openai.yaml` with designer-friendly display metadata.
-7. Add `references/`, `assets/`, or `scripts/` only when they are necessary for repeatability or quality.
-8. Bump the plugin version in `plugins/design-skills/.codex-plugin/plugin.json` when behavior changes.
-9. Validate the skill and summarize what changed.
-10. Commit the branch, push it, and open a GitHub pull request for review.
+2. Run the contributor readiness check below before editing.
+3. Create or switch to a feature branch before editing. Use a branch name like `codex/add-<skill-name>` or `codex/update-<skill-name>`.
+4. Name the skill in lowercase hyphen-case. Prefer short action names, such as `design-critique`, `write-design-brief`, or `figma-handoff-review`.
+5. Create the skill under `plugins/design-skills/skills/<skill-name>/`.
+6. Add `SKILL.md` with only `name` and `description` in frontmatter.
+7. Add `agents/openai.yaml` with designer-friendly display metadata.
+8. Add `references/`, `assets/`, or `scripts/` only when they are necessary for repeatability or quality.
+9. Bump the plugin version in `plugins/design-skills/.codex-plugin/plugin.json` when behavior changes.
+10. Validate the skill and summarize what changed.
+11. Commit the branch, push it, and open a GitHub pull request for review.
+
+## Contributor Readiness Check
+
+Before creating files, verify the user is working in a local clone of the Design Skills repository and can push to GitHub:
+
+- `git --version` works.
+- `gh --version` works.
+- `gh auth status` shows the user is logged in.
+- `gh repo view Arelicovarrubias/design-skills` succeeds.
+- The current folder contains `.agents/plugins/marketplace.json` and `plugins/design-skills/.codex-plugin/plugin.json`.
+- `git remote -v` shows `origin` pointing to `https://github.com/Arelicovarrubias/design-skills.git` or an equivalent GitHub SSH URL.
+
+If Git, GitHub CLI, GitHub auth, repository access, or the local clone is missing, stop and tell the user to run `$setup-design-skills-contributor` first. Do not create a local-only commit.
+
+If the current folder is clearly the Design Skills repository but `origin` is missing, add:
+
+```bash
+git remote add origin https://github.com/Arelicovarrubias/design-skills.git
+```
+
+Then fetch `origin/main` and continue. If `origin` points somewhere else, stop and ask before changing it.
+
+If push or PR creation fails after committing because of missing GitHub authentication or repository access, tell the user to run `$setup-design-skills-contributor`, then retry the push and PR. Do not describe the work as complete until a pull request URL exists.
 
 ## Pull Request Requirement
 
@@ -119,6 +143,7 @@ Before finishing, confirm:
 - No scaffold placeholders remain.
 - Optional resources are referenced from `SKILL.md` and are not duplicated there.
 - The plugin version is bumped for behavior changes.
+- The contributor readiness check passed, or `$setup-design-skills-contributor` was recommended before editing.
 - The changes are on a feature branch, not committed directly to `main`.
 - A pull request has been opened, or the final answer clearly says why a PR could not be opened.
 - The final answer names changed files and any validation that could not run.
