@@ -6,8 +6,9 @@ This repo keeps the Design Skills plugin up to date for everyone in our organiza
 
 1. Open Codex.
 2. Start a new thread.
-3. Paste your idea in plain language.
-4. Ask Codex to use `$add-design-skill`.
+3. If this is your first time contributing, ask Codex to use `$setup-design-skills-contributor`.
+4. After setup is complete, paste your skill idea in plain language.
+5. Ask Codex to use `$add-design-skill`.
 
 Example:
 
@@ -24,6 +25,8 @@ The skill should help with:
 Codex should create the files, check the format, and prepare the GitHub changes for review.
 
 Important: skill additions and skill behavior changes should happen through a pull request. Codex should create a branch, push it, and open a pull request instead of pushing directly to `main`.
+
+If Codex says Git, GitHub, GitHub CLI, GitHub authentication, or a Git remote is missing, ask it to run `$setup-design-skills-contributor` first. That setup skill is meant to install the tools, log in safely, clone the repo, and fix the `origin` remote for you.
 
 ## What To Include In Your Request
 
@@ -85,6 +88,7 @@ Every new skill should:
 - Stay concise and practical.
 - Use references, assets, or scripts only when they genuinely help.
 - Bump the plugin version when behavior changes.
+- Run `$setup-design-skills-contributor` first if GitHub, GitHub CLI, or the repo remote is not ready.
 
 ## Maintainer Notes
 

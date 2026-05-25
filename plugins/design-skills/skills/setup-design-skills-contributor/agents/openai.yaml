@@ -1,0 +1,4 @@
+interface:
+  display_name: "Setup Design Skills Contributor"
+  short_description: "Set up GitHub, Git, and gh for contributors"
+  default_prompt: "Use $setup-design-skills-contributor to set up this computer before adding Design Skills contributions."
