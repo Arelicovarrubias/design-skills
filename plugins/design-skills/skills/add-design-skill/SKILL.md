@@ -1,6 +1,6 @@
 ---
 name: add-design-skill
-description: Create, edit, or review new skills for the private Design Skills Codex plugin and route the change through a GitHub pull request. Use when a designer or maintainer asks to add a skill, draft a skill, standardize skill instructions, review a proposed skill, convert a repeatable design workflow into a skill, update skill metadata, or prepare a skill contribution in this repository.
+description: Create, edit, or review new skills for the Design Skills Codex plugin using the GitHub fork pull request workflow. Use when a designer or maintainer asks to add a skill, draft a skill, standardize skill instructions, review a proposed skill, convert a repeatable design workflow into a skill, update skill metadata, or prepare a skill contribution in this repository.
 ---
 
 # Add Design Skill
@@ -29,26 +29,36 @@ Create Design Skills plugin skills that are easy for designers to request, easy 
 
 ## Contributor Readiness Check
 
-Before creating files, verify the user is working in a local clone of the Design Skills repository and can push to GitHub:
+Before creating files, verify the user is working in a local fork clone of the Design Skills repository and can push to their fork:
 
 - `git --version` works.
 - `gh --version` works.
 - `gh auth status` shows the user is logged in.
 - `gh repo view Arelicovarrubias/design-skills` succeeds.
 - The current folder contains `.agents/plugins/marketplace.json` and `plugins/design-skills/.codex-plugin/plugin.json`.
-- `git remote -v` shows `origin` pointing to `https://github.com/Arelicovarrubias/design-skills.git` or an equivalent GitHub SSH URL.
+- `git remote -v` shows `origin` pointing to the contributor's fork, such as `https://github.com/<github-user>/design-skills.git` or an equivalent GitHub SSH URL.
+- `git remote -v` shows `upstream` pointing to `https://github.com/Arelicovarrubias/design-skills.git` or an equivalent GitHub SSH URL.
+- `git fetch upstream main` succeeds.
 
 If Git, GitHub CLI, GitHub auth, repository access, or the local clone is missing, stop and tell the user to run `$setup-design-skills-contributor` first. Do not create a local-only commit.
 
-If the current folder is clearly the Design Skills repository but `origin` is missing, add:
+If the current folder is clearly the Design Skills repository but the remotes are not fork-ready, route the user through `$setup-design-skills-contributor` unless the fix is unambiguous:
 
 ```bash
-git remote add origin https://github.com/Arelicovarrubias/design-skills.git
+git remote add upstream https://github.com/Arelicovarrubias/design-skills.git
 ```
 
-Then fetch `origin/main` and continue. If `origin` points somewhere else, stop and ask before changing it.
+If `origin` points directly to `Arelicovarrubias/design-skills`, do not push there. Run or recommend `$setup-design-skills-contributor` so the contributor gets their own fork as `origin`.
 
-If push or PR creation fails after committing because of missing GitHub authentication or repository access, tell the user to run `$setup-design-skills-contributor`, then retry the push and PR. Do not describe the work as complete until a pull request URL exists.
+Create feature branches from `upstream/main`, push them to `origin`, and open PRs back to `Arelicovarrubias/design-skills`:
+
+```bash
+git switch -c codex/add-<skill-name> upstream/main
+git push -u origin codex/add-<skill-name>
+gh pr create --repo Arelicovarrubias/design-skills --base main --head <github-user>:codex/add-<skill-name>
+```
+
+If push or PR creation fails after committing because of missing GitHub authentication, fork setup, or repository remotes, tell the user to run `$setup-design-skills-contributor`, then retry the push and PR. Do not describe the work as complete until a pull request URL exists.
 
 ## Pull Request Requirement
 
@@ -58,7 +68,7 @@ If GitHub branch protection is unavailable, treat this skill as the process guar
 
 - Work on a feature branch.
 - Commit only the requested skill and documentation changes.
-- Push the feature branch.
+- Push the feature branch to the contributor's fork.
 - Open a pull request against `main`.
 - Leave merging to a maintainer after review.
 
@@ -143,7 +153,7 @@ Before finishing, confirm:
 - No scaffold placeholders remain.
 - Optional resources are referenced from `SKILL.md` and are not duplicated there.
 - The plugin version is bumped for behavior changes.
-- The contributor readiness check passed, or `$setup-design-skills-contributor` was recommended before editing.
+- The contributor readiness check passed with `origin` as the contributor fork and `upstream` as `Arelicovarrubias/design-skills`, or `$setup-design-skills-contributor` was recommended before editing.
 - The changes are on a feature branch, not committed directly to `main`.
 - A pull request has been opened, or the final answer clearly says why a PR could not be opened.
 - The final answer names changed files and any validation that could not run.

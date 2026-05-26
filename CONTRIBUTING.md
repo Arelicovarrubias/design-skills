@@ -24,9 +24,9 @@ The skill should help with:
 
 Codex should create the files, check the format, and prepare the GitHub changes for review.
 
-Important: skill additions and skill behavior changes should happen through a pull request. Codex should create a branch, push it, and open a pull request instead of pushing directly to `main`.
+Important: skill additions and skill behavior changes should happen through a pull request. Codex should create a fork, create a branch, push the branch to the contributor's fork, and open a pull request instead of pushing directly to `main`.
 
-If Codex says Git, GitHub, GitHub CLI, GitHub authentication, or a Git remote is missing, ask it to run `$setup-design-skills-contributor` first. That setup skill is meant to install the tools, log in safely, clone the repo, and fix the `origin` remote for you.
+If Codex says Git, GitHub, GitHub CLI, GitHub authentication, fork setup, or Git remotes are missing, ask it to run `$setup-design-skills-contributor` first. That setup skill is meant to install the tools, log in safely, fork the repo, clone it, and configure `origin` and `upstream` for you.
 
 ## What To Include In Your Request
 
@@ -43,7 +43,7 @@ You do not need perfect wording. A rough idea is enough.
 
 After you ask Codex to add the skill:
 
-1. Codex creates a draft in this repo.
+1. Codex creates a draft in your fork of this repo.
 2. Codex opens a pull request on GitHub.
 3. A maintainer reviews it.
 4. After approval, the skill becomes part of the shared `Design Skills` plugin.
@@ -88,7 +88,7 @@ Every new skill should:
 - Stay concise and practical.
 - Use references, assets, or scripts only when they genuinely help.
 - Bump the plugin version when behavior changes.
-- Run `$setup-design-skills-contributor` first if GitHub, GitHub CLI, or the repo remote is not ready.
+- Run `$setup-design-skills-contributor` first if GitHub, GitHub CLI, the fork, or the repo remotes are not ready.
 - Pass the `Validate Design Skills` pull request check.
 
 ## Maintainer Notes
