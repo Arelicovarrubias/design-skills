@@ -1,13 +1,13 @@
 ---
 name: setup-design-skills-contributor
-description: Set up a non-technical designer's computer to contribute to the private Design Skills repository. Use when a designer needs first-time setup for GitHub account access, Homebrew, Git, GitHub CLI, Git name/email, gh authentication, cloning the design-skills repo, fixing missing origin remotes, or preparing their machine before using $add-design-skill.
+description: Set up a non-technical designer's computer to contribute to the public Design Skills repository using the GitHub fork pull request workflow. Use when a designer needs first-time setup for GitHub account access, Homebrew, Git, GitHub CLI, Git name/email, gh authentication, forking and cloning design-skills, fixing origin/upstream remotes, or preparing their machine before using $add-design-skill.
 ---
 
 # Setup Design Skills Contributor
 
 ## Overview
 
-Prepare a designer's computer so Codex can create a branch, commit, push, and open pull requests for the Design Skills repository. Assume the user is non-technical: explain what is happening in plain language, run commands for them when possible, and never ask them to paste passwords or tokens into chat.
+Prepare a designer's computer so Codex can create a fork, branch, commit, push, and open pull requests for the Design Skills repository. Assume the user is non-technical: explain what is happening in plain language, run commands for them when possible, and never ask them to paste passwords or tokens into chat.
 
 ## Safety Rules
 
@@ -15,7 +15,7 @@ Prepare a designer's computer so Codex can create a branch, commit, push, and op
 - Do not ask for a GitHub password, personal access token, or one-time code in chat.
 - Prefer browser-based GitHub login through `gh auth login --web`.
 - If a command needs approval, explain the reason in one sentence.
-- Stop and ask a maintainer for help if repository access is denied after login.
+- Stop and ask a maintainer for help if GitHub account or authentication setup fails after retrying once.
 
 ## Setup Workflow
 
@@ -40,22 +40,26 @@ Prepare a designer's computer so Codex can create a branch, commit, push, and op
    - Tell the user GitHub may open in a browser and they should log in with their GitHub credentials.
    - Run `gh auth login --web --git-protocol https`.
    - Confirm with `gh auth status`.
-8. Confirm the user has access to `Arelicovarrubias/design-skills`:
+8. Confirm the user can see the public repository:
    - Run `gh repo view Arelicovarrubias/design-skills`.
-   - If access is denied, ask a maintainer to invite the user to the private repository before continuing.
-9. Clone or open the repository:
+   - If this fails after GitHub login, check the network or GitHub authentication before continuing.
+9. Fork and clone the repository:
    - Preferred local folder: `~/Documents/design-skills`.
-   - If the folder does not exist, clone with `gh repo clone Arelicovarrubias/design-skills ~/Documents/design-skills`.
+   - If the folder does not exist, run `gh repo fork Arelicovarrubias/design-skills --clone --default-branch-only`, then move or clone into `~/Documents/design-skills` if needed.
    - If a folder already exists, verify it contains `.agents/plugins/marketplace.json` and `plugins/design-skills/.codex-plugin/plugin.json`.
-10. Verify or fix the Git remote inside the repository:
-    - If `origin` points to `https://github.com/Arelicovarrubias/design-skills.git` or an equivalent GitHub SSH URL, continue.
-    - If `origin` is missing and the folder is clearly the Design Skills repository, add `origin` with `https://github.com/Arelicovarrubias/design-skills.git`.
-    - If `origin` points somewhere else, stop and ask before changing it.
+   - If the folder is a direct clone of `Arelicovarrubias/design-skills`, run `gh repo fork --remote --default-branch-only` from inside that folder so GitHub CLI creates the user's fork and rewrites remotes.
+10. Verify or fix the Git remotes inside the repository:
+    - `origin` must point to the user's fork, such as `https://github.com/<github-user>/design-skills.git` or an equivalent SSH URL.
+    - `upstream` must point to `https://github.com/Arelicovarrubias/design-skills.git` or an equivalent SSH URL.
+    - If `upstream` is missing, add it with `git remote add upstream https://github.com/Arelicovarrubias/design-skills.git`.
+    - If `origin` points to `Arelicovarrubias/design-skills`, use `gh repo fork --remote --default-branch-only` to create/use the user's fork and set remotes.
+    - If either remote points somewhere unrelated, stop and ask before changing it.
 11. Run a final readiness check:
     - `git remote -v`
     - `git status --short --branch`
     - `gh auth status`
     - `gh repo view Arelicovarrubias/design-skills`
+    - `git fetch upstream main`
 
 ## Homebrew Install Command
 
@@ -80,6 +84,7 @@ End with a short status:
 - Homebrew, Git, and GitHub CLI installed or already present.
 - Git name and email configured.
 - GitHub CLI authenticated or blocked.
-- Repository cloned/opened.
-- `origin` remote configured.
+- Repository forked and cloned/opened.
+- `origin` remote points to the contributor's fork.
+- `upstream` remote points to `Arelicovarrubias/design-skills`.
 - Whether the user can now run `$add-design-skill`.
