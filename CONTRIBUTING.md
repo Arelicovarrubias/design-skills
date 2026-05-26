@@ -89,6 +89,7 @@ Every new skill should:
 - Use references, assets, or scripts only when they genuinely help.
 - Bump the plugin version when behavior changes.
 - Run `$setup-design-skills-contributor` first if GitHub, GitHub CLI, or the repo remote is not ready.
+- Pass the `Validate Design Skills` pull request check.
 
 ## Maintainer Notes
 
