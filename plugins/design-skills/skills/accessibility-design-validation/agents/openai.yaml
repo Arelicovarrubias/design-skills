@@ -1,0 +1,4 @@
+interface:
+  display_name: "Accessibility Design Validation"
+  short_description: "WCAG 2.2 AA accessibility review for UI designs"
+  default_prompt: "Use $accessibility-design-validation to review this design for WCAG 2.2 AA accessibility risks and practical improvements."
