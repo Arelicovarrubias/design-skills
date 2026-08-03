@@ -1,0 +1,4 @@
+interface:
+  display_name: "UX Process Playbook"
+  short_description: "Plan lightweight UX process and team rituals"
+  default_prompt: "Use $ux-process-playbook to turn this design challenge into a practical UX process plan."
