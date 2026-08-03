@@ -1,4 +1,0 @@
-interface:
-  display_name: "UX Workshop Playbook"
-  short_description: "Plan workshops and synthesize insights"
-  default_prompt: "Use $ux-process-playbook to plan this workshop and define the right methods, visuals, outputs, and synthesis approach."
