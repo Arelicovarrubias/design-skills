@@ -1,5 +1,5 @@
 ---
-name: ux-process-playbook
+name: ux-workshop-playbook
 description: Plan, facilitate, and synthesize UX, product, discovery, alignment, ideation, prioritization, journey-mapping, service-design, and decision workshops. Use when designers ask Codex to turn management scope, vague stakeholder direction, recordings, transcripts, stickies, FigJam/Miro/Mural boards, research notes, or workshop notes into workshop plans, agendas, facilitation guides, visual canvases, methods, tools, synthesized insights, decisions, risks, and next steps.
 ---
 
@@ -90,7 +90,7 @@ For post-workshop synthesis requests, return:
 
 ## Example Prompts
 
-- "Use $ux-process-playbook to plan a workshop from this management scope."
+- "Use $ux-workshop-playbook to plan a workshop from this management scope."
 - "Help me choose the right workshop method and tools for this stakeholder alignment problem."
 - "Create a FigJam board structure for an assumption-mapping workshop."
 - "Tell me which visualization to create for this messy workflow problem."
