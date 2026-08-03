@@ -1,84 +1,99 @@
 ---
 name: ux-process-playbook
-description: Plan lightweight UX processes, discovery activities, research validation, design critique sessions, workshops, synthesis, handoff, and stakeholder communication. Use when designers ask Codex to turn vague product asks, feature ideas, research needs, messy feedback, team rituals, or design delivery work into practical UX plans, agendas, checklists, scripts, decision logs, or updates.
+description: Plan, facilitate, and synthesize UX, product, discovery, alignment, ideation, prioritization, journey-mapping, service-design, and decision workshops. Use when designers ask Codex to turn management scope, vague stakeholder direction, recordings, transcripts, stickies, FigJam/Miro/Mural boards, research notes, or workshop notes into workshop plans, agendas, facilitation guides, visual canvases, methods, tools, synthesized insights, decisions, risks, and next steps.
 ---
 
-# UX Process Playbook
+# UX Workshop Playbook
 
 ## Overview
 
-Help UX designers choose the smallest useful process for the situation and produce artifacts that make the work easier to run with product, engineering, research, and leadership partners.
+Help designers design useful workshops from messy inputs, facilitate them with the right methods and visuals, and synthesize the outputs into insights, decisions, risks, and next actions.
 
-Prioritize practical momentum over process performance. Make the next step clear, right-sized, evidence-aware, and easy to explain.
+Optimize for workshops that change what the team understands or decides. Avoid workshops when a smaller async review, interview, critique, or decision owner conversation would be more effective.
 
 ## Core Workflow
 
-1. Identify the design situation from the prompt, attached artifacts, research notes, product context, or repo files.
-2. Classify the process need:
-   - Discovery: clarify problem, audience, goals, constraints, assumptions, and risks.
-   - Validation: plan research, usability testing, concept evaluation, or evidence gathering.
-   - Alignment: create workshop agendas, decision points, tradeoff framing, or stakeholder updates.
-   - Critique: structure review of flows, screens, prototypes, content, or design-system fit.
-   - Synthesis: turn notes, feedback, or findings into themes, insights, opportunities, and decisions.
-   - Handoff: prepare engineering-ready specs, states, acceptance criteria, and QA checks.
-   - Ritual improvement: improve recurring UX practices such as critique, discovery intake, research readouts, or design QA.
-3. Ask a clarifying question only when the missing answer would materially change the process. Otherwise state assumptions briefly and proceed.
-4. Choose the smallest method set that addresses the highest uncertainty or collaboration risk.
-5. Produce the requested artifact in a reusable format. Include owner, timing, inputs, outputs, and decision points when useful.
-6. Call out tradeoffs, evidence gaps, and what to do next. Avoid generic UX advice and heavyweight ceremonies unless the situation demands them.
+1. Identify the workshop input: management scope, product problem, stakeholder request, existing research, design artifact, board export, sticky notes, recording, transcript, or meeting notes.
+2. Clarify the decision or outcome the workshop must produce. Ask only if missing context would materially change the workshop shape.
+3. Decide whether a workshop is warranted. If not, recommend the lighter alternative and explain why.
+4. Choose the workshop type, methods, tools, participant mix, visual canvases, and outputs.
+5. Produce the artifact the designer needs: intake questions, agenda, facilitation script, invite, pre-read, board layout, visualization plan, synthesis plan, insight report, decision log, or stakeholder readout.
+6. For post-workshop synthesis, separate evidence, participant opinions, inferred themes, decisions, unresolved questions, and recommended next steps.
 
-## Method Selection
+## Workshop Modes
 
-Use `references/method-picker.md` when the user asks what UX activity to run, how to sequence work, or how to choose between research, critique, workshop, QA, or handoff activities.
+Use the relevant references based on the user's ask:
 
-Default selection rules:
+- Use `references/workshop-intake.md` for management scope, vague asks, unclear goals, participant planning, and success criteria.
+- Use `references/workshop-method-picker.md` for choosing workshop formats, methods, frameworks, and tools.
+- Use `references/visualization-picker.md` when the user needs visuals, canvases, diagrams, maps, matrices, or guidance on what to create.
+- Use `references/facilitation-guide.md` for agendas, prompts, timeboxes, facilitation scripts, participant prep, and live capture.
+- Use `references/sticky-and-recording-synthesis.md` for reading stickies, board exports, recordings, transcripts, notes, or mixed workshop evidence.
+- Use `references/insight-report-template.md` for post-workshop insights, opportunity areas, decision logs, follow-up plans, and stakeholder readouts.
 
-- If the problem is unclear, start with discovery framing before design production.
-- If the audience or user need is uncertain, gather evidence before evaluating UI quality.
-- If the concept is risky but cheap to change, run concept validation before detailed design.
-- If the flow exists and task success is uncertain, run usability testing or heuristic review.
-- If feedback is scattered or political, structure critique or decision framing before redesigning.
-- If engineering is waiting, focus on handoff clarity, states, edge cases, and acceptance criteria.
-- If time is short, compress the process to the riskiest assumption and one artifact that moves the team forward.
+## Input Handling
+
+- If the user provides management scope, translate it into workshop purpose, decisions, constraints, participants, and expected outputs.
+- If the user provides recordings or transcripts, extract goals, decisions, disagreements, quotes, themes, risks, and action items. Do not invent quotes.
+- If the user provides sticky notes or board exports, cluster stickies by meaning before naming themes. Preserve outliers that may signal risk.
+- If the user provides screenshots of boards, read visible text carefully and state any legibility limits.
+- If raw audio/video cannot be inspected with available tools, ask for a transcript, notes, or recording summary.
+
+## Visualization Guidance
+
+Recommend visuals only when they will help the team think, decide, or synthesize.
+
+Common visual choices:
+
+- Stakeholder map for influence, roles, or adoption complexity.
+- RACI or DACI for unclear ownership or decision rights.
+- Journey map for user experience over time.
+- Service blueprint for frontstage/backstage process and system complexity.
+- Assumption risk matrix for uncertain plans or management scope.
+- Impact-effort matrix for prioritization.
+- Opportunity solution tree for strategy-to-opportunity alignment.
+- Affinity map for messy stickies or qualitative inputs.
+- Decision matrix for competing options.
+- Roadmap or now/next/later view for follow-up sequencing.
+
+When useful, create the visualization directly in the response using a table, Mermaid diagram, structured canvas, or a board-building plan. Use Figma/FigJam or visualization tools when available and requested.
 
 ## Response Shape
 
-Match the output to the user's request. For open-ended planning requests, use this order:
+For workshop planning requests, return:
 
-- **Situation read**: one short paragraph naming the goal, uncertainty, and process risk.
-- **Recommended approach**: the smallest useful sequence of activities.
-- **Plan**: steps with timing, participants, inputs, outputs, and decision points.
-- **Artifact**: the ready-to-use plan, agenda, checklist, script, rubric, update, or decision log.
-- **Tradeoffs**: what this approach covers, what it does not cover, and how to adjust if timeline or evidence changes.
-- **Next move**: the first concrete action the designer should take.
+- **Situation read**: goal, decision, uncertainty, and why a workshop is or is not useful.
+- **Recommended workshop**: workshop type, methods, tools, participants, duration, and output.
+- **Agenda**: timed sections with activities, prompts, and facilitation notes.
+- **Visuals and materials**: boards, canvases, diagrams, pre-work, and artifacts to create.
+- **Capture plan**: what to record during the session so synthesis is easier.
+- **After-workshop synthesis plan**: how to process stickies, recordings, decisions, and next steps.
 
-## Reference Guide
+For post-workshop synthesis requests, return:
 
-- Use `references/method-picker.md` for choosing activities and sequencing UX process.
-- Use `references/discovery-plan-template.md` for vague stakeholder asks, early feature framing, or opportunity discovery.
-- Use `references/research-plan-template.md` for usability tests, concept tests, interview plans, or lightweight validation.
-- Use `references/critique-rubric.md` for design critique agendas and structured review prompts.
-- Use `references/workshop-agendas.md` for alignment, assumption mapping, journey mapping, prioritization, and design studio sessions.
-- Use `references/synthesis-patterns.md` for turning notes, research, critique, or feedback into themes and decisions.
-- Use `references/handoff-checklist.md` for engineering handoff, design QA, edge cases, and acceptance criteria.
-- Use `references/stakeholder-updates.md` for concise updates, decision framing, risks, and asks.
+- **Source inventory**: what inputs were reviewed and any limits.
+- **Themes and insights**: clustered themes with evidence, interpretation, and confidence.
+- **Decisions and open questions**: what is resolved and what still needs ownership.
+- **Risks and tensions**: disagreements, gaps, dependencies, and edge cases.
+- **Recommended next steps**: actions, owners, and follow-up artifacts.
+- **Stakeholder readout**: concise summary suitable for sharing.
 
 ## Standards
 
-- Keep outputs designer-ready and team-readable.
-- State assumptions when context is thin.
-- Prefer one strong plan over a menu of generic options unless the user asks to compare options.
-- Tailor process weight to timeline, risk, team maturity, and decision urgency.
-- Separate evidence, inference, and recommendation.
-- Include concrete artifacts, not only advice.
-- Avoid research theater, workshop theater, and elaborate frameworks that do not change the decision or outcome.
+- Start from the decision or learning goal, not from a favorite workshop activity.
+- Keep workshops as small as possible while still including decision owners and necessary expertise.
+- Choose methods based on uncertainty, collaboration need, power dynamics, and available evidence.
+- Make outputs concrete enough to use immediately.
+- Separate what participants said from what Codex infers.
+- Treat management scope as an input to clarify, not as proof of the right solution.
+- Protect sensitive workshop content. Do not expose unnecessary participant names or confidential details in synthesized outputs.
 
 ## Example Prompts
 
-- "Use $ux-process-playbook to plan the UX process for this feature."
-- "Turn this vague stakeholder ask into a discovery plan."
-- "Help me decide whether we need usability testing, critique, or a workshop."
-- "Create a design critique agenda for this flow."
-- "Make a lightweight research plan for validating this concept."
-- "Help me improve our design handoff process."
-- "Draft a stakeholder update explaining our UX plan and risks."
+- "Use $ux-process-playbook to plan a workshop from this management scope."
+- "Help me choose the right workshop method and tools for this stakeholder alignment problem."
+- "Create a FigJam board structure for an assumption-mapping workshop."
+- "Tell me which visualization to create for this messy workflow problem."
+- "Turn these stickies into themes, insights, and next steps."
+- "Analyze this transcript and create a workshop insight report."
+- "Create a facilitation guide for a journey-mapping workshop."
